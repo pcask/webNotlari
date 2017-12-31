@@ -1,4 +1,4 @@
-﻿
+﻿@using mvcGiris.Library;
 @{
     Layout = null;
 }
@@ -9,20 +9,51 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>HtmlHelpers</title>
+    <style>
+        label {
+            margin-top: 5px;
+            display: block;
+        }
+
+        .kirmizi {
+            color: red;
+        }
+    </style>
 </head>
 <body>
-    <div> 
+    <div>
 
         <h1>Html Helpers</h1>
-        <p>Asp.Net Web Forms da hazır olarak sunulan bir çok kontrol yer almakta (asp:TextBox, asp:Button vb.) ve bu kontroller sürükle bırak şeklinde kullanılabilir. Benzer şekilde Asp.Net MVC tarafında da hazır kontrollere Html Helpers sınıfındaki <b> Extention Method </b>lar aracılığı ile ulaşabiliriz. Ayrıcı kendi Extention Method'larımızı yazarak projelerimizde kullanabiliriz.</p>
+        <p>Asp.Net Web Forms da hazır olarak sunulan bir çok kontrol yer almakta (asp:TextBox, asp:Button vb.) ve bu kontroller sürükle bırak şeklinde kullanılabilir. Benzer şekilde Asp.Net MVC tarafında da hazır kontrollere Html Helpers sınıfındaki <b> Extension Method </b>lar aracılığı ile ulaşabiliriz. Ayrıcı kendi Extension Method'larımızı yazarak projelerimizde kullanabiliriz.</p>
 
 
         <h3>Düz Html ile oluşturulmuş kontroller</h3>
-        <label>Adınız</label><br />
+        <label>Adınız</label>
         <input type="text" id="txtAd" name="txtAd" /><br />
-        <label>Soyadınız</label><br />
-        <input type="text" id="txtSoyad" name="txtSoyad" /><br /><br />
-        <input type="button" value="Giriş" />
+        <label>Soyadınız</label>
+        <input type="text" id="txtSoyad" name="txtSoyad" /><br />
+        <label>Öz Geçmişiniz</label>
+        <textarea id="txtAreaOzgecmis" name="txtAreaOzgecmis" rows="5" cols="22"></textarea><br /><br />
+        <input type="button" value="Giriş" id="btnGiris" /><br />
+        <a href="/Home/Index?ad=Sezer&soyad=Ayran" class="kirmizi" title="İndex Sayfasına Gider">İndex Sayfasına Git</a>
+
+        <hr />
+
+        <h3>Html Helpers Sınıfındaki Extensions Methodları ile oluşturulmuş kontroller</h3>
+        @Html.Label("Adınız")
+        @Html.TextBox("txtAd")
+        @Html.Label("Soyadınız")
+        @Html.TextBox("txtSoyad")
+        @Html.Label("Öz Geçmişiniz")
+        @Html.TextArea("txtAreaOzgecmis", "", 5, 22, null) <br />
+        @Html.Button("btnGiris", ButtonType.button, "Giriş")
+        @Html.Button(text: "Giriş")
+        @Html.ButtonWithTagBuilder(text: "TagBuilder ile Üretildi") <br />
+        @Html.ActionLink("İndex Sayfasına Git", "Index", "Home", new { ad = "Sezer", soyad = "Ayran" }, new { title = "İndex Sayfasına Gider", @class = "kirmizi" }) <br />
+        
+
+        @*Html içine html alan extensions method örneği*@
+        @Html.Paragraph("paragraf",@<text><b style="color:blue;font-style:italic">Merhaba</b></text>)
     </div>
 
 </body>
