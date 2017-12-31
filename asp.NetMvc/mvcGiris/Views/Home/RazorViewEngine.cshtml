@@ -1,0 +1,81 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>RazorViewEngine</title>
+</head>
+<body>
+    <div>
+        <h1>ASP.net Web Form View Engine</h1>
+        <p>ASP.net Web Froms da Web Form View Engine kullanılır. HTML sayfalarımızın içerisinde sunucu tarafından ele alınacak kodların yorumlanıp çalıştırılması ve geriye bu kodların Sadece sonuçlarının HTML e dönüştürülmesini sağlayan görüntüleme motorudur.</p>
+        <p> <% sunucuda çalıştırılacak kodlar %> şeklinde kullanılır. </p>
+
+        <br />
+
+        <h1>Razor View Engine</h1>
+        <p>ASP.net MVC de yoğunluklu olarak Razor View Engine kullanılıyor. View'ler içerisinde ki HTML kodlarımız içerisinde sunucu tarafında çalışacak kodlar yazma isteyebiliriz. Bu kodların yorumlanıp sunucu tarafında çalıştırılıp daha sonra sadece sonuçlarının geriye dönmesi sağlanır. </p>
+
+        @{
+            // Örnek bir Razor syntax'ı ve Razor bloğu
+
+            string ad = "Sezer";
+            string soyad = "Ayran";
+            string adSoyad = ad + " " + soyad;
+            int dogumYili = 1992;
+        }
+
+        <p>
+            @ad
+            <br />
+            @soyad
+            <br />
+            @adSoyad
+            <br />
+            @ad @soyad
+            <br />
+            Yaşınız: @(DateTime.Now.Year - dogumYili)
+        </p>
+
+        <!-- Burası HTML Açıklama Satırıdır Bu içerik client'e gönderilir -->
+        @* Burası Razor Açıklama Satırıdır. Bu içerik client'e gönderilmez.*@
+
+        <h1>Razor ile Karar Yapıları ve Döngü kullanımı</h1>
+
+        @{
+            string[] isimler = { "Bilal", "Delil", "Onur", "Enver", "Sezer" };
+            int index = 0;
+            <ul>
+                @foreach (string isim in isimler)
+                {
+                    <li>
+                        @if (index % 2 == 0)
+                        {
+                            <b>@isim</b>
+                        }
+                        else
+                        {
+                            @isim
+                        }
+                    </li>
+
+                    index++;
+                }
+            </ul>
+        }
+
+        <br />
+
+        @for (int i = 0; i < 10; i++)
+        {
+            @("Sayı : " + i.ToString()) <br />
+        }
+
+    </div>
+</body>
+</html>

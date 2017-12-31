@@ -21,5 +21,15 @@ namespace mvcGiris.Controllers
         {
             return View();
         }
+
+        public ActionResult RazorViewEngine()
+        {
+            return View();
+        }
+
+        public ActionResult HtmlHelpers()
+        {
+            return View();
+        }
     }
 }
