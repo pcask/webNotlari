@@ -1,0 +1,25 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>HttpUtility</title>
+</head>
+<body>
+    <div> 
+        <h1>HttpUtility Sınıfı</h1>
+        <p>HttpUtility sınıfın methodları ile Html ve Url ile ilgili işlemler yapabiliriz. </p>
+
+        @HttpUtility.HtmlEncode("<b> Sezer Ayran </b>")<br />
+        @HttpUtility.HtmlDecode("&lt;b&gt; Sezer Ayran &lt;/b&gt;")<br />
+        @HttpUtility.UrlEncode("www.sezerayran.com.tr?fıstıkçı=şahap")<br />
+        @HttpUtility.UrlDecode("www.sezerayran.com.tr%3ff%c4%b1st%c4%b1k%c3%a7%c4%b1%3d%c5%9fahap")<br />
+
+    </div>
+</body>
+</html>

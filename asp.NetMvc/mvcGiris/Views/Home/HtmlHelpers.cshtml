@@ -54,6 +54,12 @@
 
         @*Html içine html alan extensions method örneği*@
         @Html.Paragraph("paragraf",@<text><b style="color:blue;font-style:italic">Merhaba</b></text>)
+
+        @* HtmlHelpers Sınıfının yoğunlukla kullanılan diğer bir Method'u da Raw Methodudur. Bu metod sayesinde sayfamıza dinamik olarak html, Js ve Css kodları ekleyebiliriz. *@
+        @Html.Raw("<b>Buradaki string HtlmHelpers Sınıfının Raw Methodu sayesinde Html kodlarımız içerisine eklendi</b>")
+        @Html.Raw("<style> h3 { color:blue } </style>")
+        @Html.Raw("<script> alert('Merhaba HtmlHelper Sınıfının Raw Methodu Hizmetinizde') </script>")
+
     </div>
 
 </body>
