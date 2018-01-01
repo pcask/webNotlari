@@ -6,29 +6,69 @@
     <title>@ViewBag.Title</title>
 
     <style>
-
-        .block{
-            display:block;
-            margin:10px;
-            border:2px dotted gray;
-            padding:10px;
+        .block {
+            display: block;
+            margin: 10px;
+            border: 2px dotted gray;
+            padding: 10px;
         }
+
+        #menu ul li {
+            display: inline-block;
+            width: 100px;
+            height: 40px;
+            border: 1px solid #000a1e;
+            background-color: #1649ae;
+            margin: 5px;
+            text-align: center;
+            list-style: none;
+            line-height:40px;
+            vertical-align:middle;
+        }
+
+        #menu ul li:hover{
+            background-color:#5e0f0f;   
+        }
+
+            #menu ul li a {
+                text-decoration: none;
+                color:#ffffff;
+            }
+
+            #menu ul{
+                text-align:center;
+            }
 
     </style>
 
 </head>
 <body>
 
-    <div>
+    <div id="menu" class="block">
         @* Header *@
+
+        <ul>
+            <li>
+                @Html.ActionLink("Ana Sayfa", "homePage")
+            </li>
+
+            <li>
+                @Html.ActionLink("Hakkımızda", "about")
+            </li>
+
+            <li>
+                @Html.ActionLink("İletişim", "contact")
+            </li>
+        </ul>
     </div>
 
-    <div>
+    <div class="block">
         @RenderBody()
     </div>
 
-    <div>
+    <div class="block">
         @* Footer *@
+        <b>Tüm Hakları Saklıdır. &copy;</b>
     </div>
 </body>
 </html>
