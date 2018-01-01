@@ -1,0 +1,40 @@
+﻿@{
+    Layout = "~/Views/Shared/_MainLayoutPage.cshtml";
+}
+
+
+<style>
+
+    .childBlock {
+        width: 45%;
+        display: block;
+        margin: 10px;
+        border: 2px dotted #8d1313;
+        padding: 10px;
+        float:left;
+        height:200px;
+    }
+
+</style>
+
+<div class="childBlock">
+    @RenderBody()
+</div>
+
+<div class="childBlock">
+    <h3>İletişim Bilgileri</h3>
+
+    <hr />
+
+    <p>Adres : Sit amet, consectetur.</p>
+    <p>Tel: 0545 545 64 55.</p>
+    <p>Tel: 0545 545 64 55.</p>
+
+</div>
+
+<div style="clear:both"></div>
+
+<div class="block">
+    <h3> Buradaki Sayfa İç İçe ( Nested ) İki Layout İçerisinde Yer Almaktadır. </h3>
+    <p>İlk olarak _MainLayoutPage.cshtml oluşturuldu daha sonra bu Main Layoutu kullanması için _ChildLayoutPage.cshtml oluşturuldu ve bu sayfanın Layoutu ( _ChildLayoutPage.cshtml ) olarak belirlendi olarak belirlendi</p>
+</div>
