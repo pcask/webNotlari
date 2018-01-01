@@ -25,5 +25,10 @@ namespace Views.Controllers
         {
             return View();
         }
+
+        public ActionResult References()
+        {
+            return View();
+        }
     }
 }

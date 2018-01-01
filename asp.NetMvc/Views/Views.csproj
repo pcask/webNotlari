@@ -103,14 +103,13 @@
   <ItemGroup>
     <Content Include="Views\web.config" />
     <None Include="packages.config" />
-    <Content Include="Views\Shared\_LayoutPage1.cshtml" />
     <Content Include="Views\Home\homePage.cshtml" />
     <Content Include="Views\Home\about.cshtml" />
     <Content Include="Views\Home\contact.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\_LayoutPage2.cshtml" />
     <Content Include="Views\Shared\_MainLayoutPage.cshtml" />
     <Content Include="Views\Shared\_ChildLayoutPage.cshtml" />
+    <Content Include="Views\Home\References.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

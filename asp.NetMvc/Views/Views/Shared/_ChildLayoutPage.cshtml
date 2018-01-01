@@ -6,7 +6,7 @@
 <style>
 
     .childBlock {
-        width: 45%;
+        width: 46%;
         display: block;
         margin: 10px;
         border: 2px dotted #8d1313;
@@ -22,14 +22,8 @@
 </div>
 
 <div class="childBlock">
-    <h3>İletişim Bilgileri</h3>
-
-    <hr />
-
-    <p>Adres : Sit amet, consectetur.</p>
-    <p>Tel: 0545 545 64 55.</p>
-    <p>Tel: 0545 545 64 55.</p>
-
+    @* RenderSection Methodunun ikinci parametresi bool değer alır ve Bu sayfayı Layout olarak kullanacak sayfaların berlitilen Section'ı içermesini gerekli ( required ) veya isteğe bağlı ( optional ) olup olmuyacağını belirlememizi sağlar. Default değer true dur. Yani biz false olarak belirtmediğimiz sürece Bu sayfayı Layout olarak kullanan diğer sayfaların rightBlock isimli Section'ı içermesi zorunludur!!! *@
+    @RenderSection("rightBlock",true)
 </div>
 
 <div style="clear:both"></div>
