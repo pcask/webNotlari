@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    <style>
+
+        .block{
+            display:block;
+            margin:10px;
+            border:2px dotted gray;
+            padding:10px;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div>
+        @* Header *@
+    </div>
+
+    <div>
+        @RenderBody()
+    </div>
+
+    <div>
+        @* Footer *@
+    </div>
+</body>
+</html>
