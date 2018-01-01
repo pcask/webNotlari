@@ -108,6 +108,7 @@
     <Content Include="Views\Home\PostIslemiYapilacak.cshtml" />
     <Content Include="Views\Home\RazorViewEngine.cshtml" />
     <Content Include="Views\Home\HtmlHelpers.cshtml" />
+    <Content Include="Views\Home\UrlHelper.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

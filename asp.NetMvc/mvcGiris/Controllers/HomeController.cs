@@ -31,5 +31,10 @@ namespace mvcGiris.Controllers
         {
             return View();
         }
+
+        public ActionResult UrlHelper()
+        {
+            return View();
+        }
     }
 }

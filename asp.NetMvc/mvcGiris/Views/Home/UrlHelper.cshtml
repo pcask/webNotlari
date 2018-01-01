@@ -1,0 +1,39 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>UrlHelper</title>
+
+    <style>
+        .kirmizi {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div> 
+        
+        <h1>URL Helper Sınıfı</h1>
+        <p>Url Helper sınıfındaki bazı metodlar ile URL oluşturabiliriz ve bu URL'i bir HTML kodu içerisinde kullanabiliriz.</p>
+
+        <a href="/Home/Index?ad=Sezer&soyad=Ayran" class="kirmizi" title="İndex Sayfasına Gider">İndex Sayfasına Git</a>
+
+        @Html.ActionLink("İndex Sayfasına Git", "Index", "Home", new { ad = "Sezer", soyad = "Ayran" }, new { title = "İndex Sayfasına Gider", @class = "kirmizi" }) <br />
+
+        @Url.Action("Index") <br />
+        @Url.Action("UrlHelper") <br />
+        @Url.Content("~/Home/Index") <br />
+        @Url.Encode("~/Home/Index") <br />
+
+        @* Yukarıdaki gibi oluşturulan URL'leri aşağıdaki gibi html kodlarımızın içerisinde kullanabiliriz. *@
+        <a href="@Url.Action("Index","Home")" class="kirmizi" title="İndex Sayfasına Gider">İndex Sayfasına Git</a>
+
+    </div>
+</body>
+</html>
