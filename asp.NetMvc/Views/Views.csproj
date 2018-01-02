@@ -110,6 +110,7 @@
     <Content Include="Views\Shared\_MainLayoutPage.cshtml" />
     <Content Include="Views\Shared\_ChildLayoutPage.cshtml" />
     <Content Include="Views\Home\References.cshtml" />
+    <Content Include="Views\Shared\_PartialSiteHaritasi.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
