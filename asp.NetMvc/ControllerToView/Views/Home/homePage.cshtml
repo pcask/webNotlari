@@ -1,0 +1,90 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>homePage</title>
+</head>
+<body>
+    <div>
+        <h1>Ana Sayfa</h1>
+
+        <hr />
+    </div>
+
+    <div>
+        @* ViewData geriye Object döner. Gelen Object herhangi bir tip dönüştürme işlemine uğramazsa View tarafında otamatik olarak ToString methodu çağrılır. *@
+
+        <h3>ViewData dan gelen veriler</h3>
+        <b>Ad - Soyad : </b>@ViewData["text1"]
+        <br />
+        <b>Bool Veri Tipi : </b>@ViewData["check1"]
+        <br />
+        <b>Sayi : </b>@((int)ViewData["sayi1"] + (int)ViewData["sayi2"])
+
+        <br />
+        <br />
+        
+        @* ViewData daki değerlerimizi kontrollere basma *@
+
+        @(Html.TextBox("txtAdSoyad",ViewData["text1"].ToString()))
+        <br />
+        <input type="text" name="name" value="@ViewData["text1"]" />
+
+        <hr />
+
+        <h3>ViewBag den gelen veriler</h3>
+
+        <b>Ad - Soyad : </b>@ViewBag.text1
+        <br />
+        <b>Bool Veri Tipi : </b>@ViewBag.check1
+        <br />
+        @* ViewBag dynamic tipinden bir nesne olduğu için herhangi bir unboxing işlemine gerek yok.  *@
+        <b>Sayi : </b>@(ViewBag.sayi1 + ViewBag.sayi2)
+
+        <br />
+        <br />
+
+        @* ViewBag deki değerlerimizi kontrollere basma *@
+
+        @Html.TextBox("text2")
+
+        <br />
+        <input type="text" value="@ViewBag.text2" />
+
+
+        <hr />
+
+        <h3>TempData dan gelen veriler</h3>
+
+        <b>Ad - Soyad : </b>@TempData["text1"]
+        <br />
+        <b>Bool Veri Tipi : </b>@TempData["check1"]
+        <br />
+        <b>Sayi : </b>@((int)TempData["sayi1"] + (int)TempData["sayi2"])
+
+        <br />
+        <br />
+
+
+        @* Asp.Net Web Forms da runat="server" attribute’une sahip normal şartlarda bir adet form bulunabilirken, ASP.NET MVC içerisinde birden fazla form bulunabilir çünkü tüm form’lar HTML formudur.
+          View'larımız içerisinde html formlar oluşturabilmek için HtmlHelper sınıfının extension metodu olan BeginForm metodunu kullanabiliriz.  *@
+
+        @using (Html.BeginForm("homePage", "Home", FormMethod.Post))
+        {
+            <div>
+                <label>Kullanıcı Adınızı Giriniz : </label>
+                <input id="userName" name="userName" type="text" /> @* !!! Buradaki name attribute değeri karşılayacak Action'ın parametre ismi ile aynı olmalıdır. *@
+
+                <input id="btnGiris" type="submit" value="Giriş">
+            </div>
+        }
+
+    </div>
+</body>
+</html>
