@@ -1,0 +1,42 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>homePage</title>
+</head>
+<body>
+    <div> 
+        <h1>Ana Sayfa</h1>
+    </div>
+
+    <div>
+
+        @{ 
+
+            List<SelectListItem> list = new List<SelectListItem>();
+
+            list.Add(new SelectListItem { Text = "Sezer", Value = "S" });
+            list.Add(new SelectListItem { Text = "Yasin", Value = "Y" });
+            list.Add(new SelectListItem { Text = "Gökhan", Value = "G" });
+        }
+
+        @using (Html.BeginForm())
+        {
+            @Html.TextBox("text1") <br />
+            @Html.DropDownList("list1", list)
+            @Html.CheckBox("check1") <br /> @("Onaylıyorum")
+            
+            <hr />
+
+            <input type="submit" value="Gönder" />
+        }
+    </div>
+
+</body>
+</html>
