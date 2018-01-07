@@ -1,0 +1,52 @@
+﻿@using ModelsModelBinding.ViewModels;
+@model BirlesikModeller
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>viewlaraOzelModeller</title>
+</head>
+<body>
+    <div> 
+        <h2> Bir View'a birden fazla Model göndermek istersek. O View da kullanılacak modellerin birleşimi yeni bir Model oluşturulup gönderilir. </h2>
+
+        <hr />
+
+    </div>
+
+    <div>
+        <b>Ad : </b>@Model.KisiNesnesi.Ad <br />
+        <b>Soyad : </b>@Model.KisiNesnesi.Soyad <br />
+        <b>Yaş : </b>@Model.KisiNesnesi.Yas <br />
+
+        <b>Ad - Soyad : </b> @(Model.KisiNesnesi.Ad + " " + Model.KisiNesnesi.Soyad) <br />
+
+
+        <b>Adres : </b>@Model.AdresNesnesi.AdresTanimi <br />
+        <b>Sehir : </b>@Model.AdresNesnesi.Sehir <br />
+    </div>
+
+    <hr />
+
+    <div>
+        @using (Html.BeginForm())
+        {
+
+            @Html.TextBoxFor(x => x.KisiNesnesi.Ad) <br />
+            @Html.TextBoxFor(x => x.KisiNesnesi.Soyad) <br />
+            @Html.TextBoxFor(x => x.KisiNesnesi.Yas) <br />
+
+            @Html.TextBoxFor(x=> x.AdresNesnesi.AdresTanimi)<br />
+            @Html.TextBoxFor(x=> x.AdresNesnesi.Sehir)
+
+            <input type="submit" value="Gönder" />
+        }
+    </div>
+
+</body>
+</html>

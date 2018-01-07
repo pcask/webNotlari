@@ -1,0 +1,49 @@
+﻿@using ModelsModelBinding.Models
+@model Kisi
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>homePage</title>
+</head>
+<body>
+    <div> 
+        <h2>Home Page</h2>
+
+        <hr />
+    </div>
+
+    <div>
+        <b>Ad : </b>@Model.Ad <br />
+        <b>Soyad : </b>@Model.Soyad <br />
+        <b>Yaş : </b>@Model.Yas <br />
+
+        <hr />
+
+        <b>Ad - Soyad : </b> @(Model.Ad + " " + Model.Soyad)
+
+        <hr />
+    </div>
+
+    <div>
+        @* Yeni Bir Form Oluşturma İşlemi *@
+        @using (Html.BeginForm())
+        {
+            @* HtmlHelpers sınıfının TexBoxFor metodu View a gönderilen model'ı otomatik olarak yakalar. Bu method içerisinde lambda expression operatörü ile model'ın properti'lerine ulaşabiliriz. *@
+
+            @Html.TextBoxFor(x => x.Ad) <br />
+            @Html.TextBoxFor(x => x.Soyad) <br />
+            @Html.TextBoxFor(x => x.Yas) <br />
+
+            <input type="submit" value="Gönder" />
+        }
+    </div>
+
+</body>
+</html>
