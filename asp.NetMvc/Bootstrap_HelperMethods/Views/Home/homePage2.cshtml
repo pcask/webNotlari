@@ -1,0 +1,224 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>homePage2</title>
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+    <style>
+        .card{
+            margin-bottom:25px;
+        }
+    </style>
+
+    <script src="~/Scripts/jquery-3.2.1.slim.min.js"></script>
+    <script src="~/Scripts/popper.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+
+</head>
+<body>
+    <div>
+        <h2>Home Page 2</h2>
+        <hr />
+    </div>
+
+    <div class="container-fluid">
+
+        @*Header*@
+        <div>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="#">Ana Sayfa</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#acilirMenu" aria-controls="acilirMenu" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="acilirMenu">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Home/homePage">Home Page</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Home/homePage2">Home Page2</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Home/homePage3">Home Page3</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Dropdown
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Kategori 1</a>
+                                <a class="dropdown-item" href="#">Kategori 2</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Diğer Kategoriler</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+
+        @*Body*@
+        <div class="row">
+
+            <div class="col-md-9">
+                <h2>Makaleler</h2>
+                <hr />
+
+                <div class="card">
+                    <div class="card-header">
+                        Adipiscing elit fusce vel sapien elit.
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">
+                            Nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel placerat suscipit, orci nisl iaculis eros, a tincidunt nisi odio. <a href="#" class="btn btn-primary btn-sm">More</a>
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="badge badge-warning">tag1</span>
+                        <span class="badge badge-warning">tag2</span>
+                        <span class="badge badge-warning">tag3</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        Adipiscing elit fusce vel sapien elit.
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">
+                            Nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel placerat suscipit, orci nisl iaculis eros, a tincidunt nisi odio. <a href="#" class="btn btn-primary btn-sm">More</a>
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="badge badge-warning">tag1</span>
+                        <span class="badge badge-warning">tag2</span>
+                        <span class="badge badge-warning">tag3</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        Adipiscing elit fusce vel sapien elit.
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">
+                            Nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel placerat suscipit, orci nisl iaculis eros, a tincidunt nisi odio. <a href="#" class="btn btn-primary btn-sm">More</a>
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="badge badge-warning">tag1</span>
+                        <span class="badge badge-warning">tag2</span>
+                        <span class="badge badge-warning">tag3</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-3">
+
+                <h2>Kategoriler</h2>
+                <hr />
+
+                <ul>
+                    <li>
+                        <a href="#">Kategori 1</a>
+                    </li>
+                    <li>
+                        <a href="#">Kategori 2</a>
+                    </li>
+                    <li>
+                        <a href="#">Kategori 3</a>
+                    </li>
+                    <li>
+                        <a href="#">Kategori 4</a>
+                    </li>
+                    <li>
+                        <a href="#">Kategori 5</a>
+                    </li>
+                    <li>
+                        <a href="#">Kategori 6</a>
+                    </li>
+                    <li>
+                        <a href="#">Kategori 7</a>
+                    </li>
+                    <li>
+                        <a href="#">Kategori 8</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        @*Footer*@
+        <div class="row">
+
+            <hr />
+
+            <div class="col-md-4">
+                <ul class="small">
+                    <li>
+                        <a href="#">Consectetur adipiscing elit fusce vel.</a>
+                    </li>
+                    <li>
+                        <a href="#">Sapien elit in malesuada semper.</a>
+                    </li>
+                    <li>
+                        <a href="#">Mi, id sollicitudin urna fermentum.</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-md-4">
+                <ul class="small">
+                    <li>
+                        <a href="#">Consectetur adipiscing elit fusce vel.</a>
+                    </li>
+                    <li>
+                        <a href="#">Sapien elit in malesuada semper.</a>
+                    </li>
+                    <li>
+                        <a href="#">Mi, id sollicitudin urna fermentum.</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-md-4">
+                <ul class="small">
+                    <li>
+                        <a href="#">Consectetur adipiscing elit fusce vel.</a>
+                    </li>
+                    <li>
+                        <a href="#">Sapien elit in malesuada semper.</a>
+                    </li>
+                    <li>
+                        <a href="#">Mi, id sollicitudin urna fermentum.</a>
+                    </li>
+                </ul>
+            </div>
+
+            <hr />
+
+            <div class="col-12 text-center">
+                <span class="small">
+                    Tüm Hakları Saklıdır. &copy;
+                </span>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
