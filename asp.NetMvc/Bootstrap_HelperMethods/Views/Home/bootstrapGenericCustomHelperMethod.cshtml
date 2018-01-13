@@ -1,0 +1,41 @@
+﻿@using Bootstrap_HelperMethods.Library;
+@using Bootstrap_HelperMethods.Models;
+
+@model List<Message>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>bootstrapGenericCustomHelperMethod</title>
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+
+        <div>
+            @*Bootstrap ile Custom Html Helper Metod Kullanımı*@
+
+            @Html.Alert("alertMsj", "danger", "Örnek Text Burada Yer Alacak")
+        </div>
+
+        <hr />
+
+        <div>
+            @* Bootstrap ile Generic Custom Helper Method Kullanımı *@
+
+            @foreach (Message item in Model)
+            {
+                @Html.AlertFor(x => item, new { title = item.Text, level = item.Level })
+            }
+
+        </div>
+    </div>
+</body>
+</html>
