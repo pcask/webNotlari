@@ -7,8 +7,10 @@ namespace EF_CodeFirst.Models
 {
     public class Adres
     {
-        public int Id { get; set; }
+        public int AdresId { get; set; }
         public string AdresTanım { get; set; }
+
+        public int Kisi_Id { get; set; }
         public Kisi Kisi { get; set; }
     }
 }

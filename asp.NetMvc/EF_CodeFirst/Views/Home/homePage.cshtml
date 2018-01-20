@@ -1,0 +1,14 @@
+﻿@model IEnumerable<Kisi>
+
+@{
+    ViewBag.Title = "homePage";
+}
+
+<h2>Ana Sayfa</h2>
+
+<ul>
+    @foreach (Kisi kisi in Model)
+    {
+        <li>@(kisi.Ad + " " + kisi.Soyad)</li>
+    }
+</ul>
