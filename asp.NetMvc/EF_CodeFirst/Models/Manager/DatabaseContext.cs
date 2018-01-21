@@ -49,6 +49,9 @@ namespace EF_CodeFirst.Models.Manager
             modelBuilder.Entity<Adres>()
                 .HasKey(a => a.AdresId);
 
+
+
+            // Tablo sütünları ile ilgili diğer işlemler
             modelBuilder.Entity<Kisi>()
                 .Property(k => k.Ad)
                 .IsRequired()
@@ -60,6 +63,11 @@ namespace EF_CodeFirst.Models.Manager
                 .IsRequired()
                 .HasColumnType("nvarchar")
                 .HasMaxLength(50);
+
+            modelBuilder.Entity<Adres>()
+                .Property(a => a.AdresTanım)
+                .HasMaxLength(300)
+                .HasColumnType("nvarchar");
         }
     }
 

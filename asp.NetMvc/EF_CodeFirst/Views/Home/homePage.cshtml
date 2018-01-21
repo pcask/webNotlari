@@ -1,16 +1,78 @@
-﻿@* Aşağıdaki Kisi nesnesine ulaşılması için Views klasörünün altındaki web.config dosyasına ilgili Namespace eklenmiştir. *@
+﻿@* Aşağıdaki Kisi nesnesine ulaşılması için Views klasörünün altındaki web.config dosyasına ilgili Namespace eklenmiştir.
 
-@model IEnumerable<Kisi>
+    @model IEnumerable<Kisi> *@
+
+@using EF_CodeFirst.ViewModels.Home
+
+@model KisilerVeAdresler
 
 @{
     ViewBag.Title = "homePage";
 }
 
-<h2>Ana Sayfa</h2>
+@* Sayfada kullanılan icon'lar için; *@
+<link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" />
 
-<ul>
-    @foreach (Kisi kisi in Model)
-    {
-        <li>@(kisi.Ad + " " + kisi.Soyad)</li>
+<style>
+    .ion{
+        font-weight:bold;
+        font-size:24px;
+        vertical-align:sub;
     }
-</ul>
+</style>
+
+<div class="container-fluid">
+
+    <div class="row">
+
+        <div class="col-md-12">
+
+            <h2>Ana Sayfa</h2>
+            <hr />
+
+        </div>
+       
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-6">
+
+            <div>
+                @Html.ActionLink("Kişi Ekle","Yeni","Kisi", new { @class="btn btn-primary"})
+                <br /><br />
+            </div>
+
+            <ul class="list-group">
+                <li class="list-group-item active">Kisiler</li>
+
+                @foreach (Kisi kisi in Model.Kisiler)
+                {
+                    <li class="list-group-item"> <span class="ion ion-person"></span> @(kisi.Ad + " " + kisi.Soyad) ( <i>@kisi.Yas</i> ) </li>
+                }
+            </ul>
+
+        </div>
+
+
+        <div class="col-md-6">
+
+            <div>
+                @Html.ActionLink("Adres Ekle", "Yeni", "Adres", new { @class = "btn btn-primary" })
+                <br /><br />
+            </div>
+
+            <ul class="list-group">
+                <li class="list-group-item active">Adresler</li>
+
+                @foreach (Adres adres in Model.Adresler)
+                {
+                    <li class="list-group-item"><span class="ion ion-location"></span> @(adres.AdresTanım + " ( " + adres.Kisi.Ad +" "+ adres.Kisi.Soyad+ " )")</li>
+                }
+            </ul>
+
+        </div>
+
+    </div>
+
+</div>

@@ -1,5 +1,6 @@
 ﻿using EF_CodeFirst.Models;
 using EF_CodeFirst.Models.Manager;
+using EF_CodeFirst.ViewModels.Home;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,10 +16,13 @@ namespace EF_CodeFirst.Controllers
         {
             DatabaseContext db = new DatabaseContext();
 
-            List<Kisi> kisiler = db.Kisiler.ToList();
+            KisilerVeAdresler model = new KisilerVeAdresler
+            {
+                Adresler = db.Adresler.ToList(),
+                Kisiler = db.Kisiler.ToList()
+            };
 
-
-            return View(kisiler);
+            return View(model);
         }
     }
 }
