@@ -148,11 +148,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdresController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KisiController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Library\MyExtensions.cs" />
     <Compile Include="Models\Adres.cs" />
     <Compile Include="Models\Kisi.cs" />
     <Compile Include="Models\Manager\DatabaseContext.cs" />
@@ -177,6 +179,11 @@
     <Content Include="Scripts\jquery-3.2.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.2.1.min.map" />
     <Content Include="Views\Kisi\Yeni.cshtml" />
+    <Content Include="Views\Adres\Yeni.cshtml" />
+    <Content Include="Views\Kisi\Duzenle.cshtml" />
+    <Content Include="Views\Adres\Duzenle.cshtml" />
+    <Content Include="Views\Home\_PartialKisilerTablosu.cshtml" />
+    <Content Include="Views\Home\_PartialAdreslerTablosu.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

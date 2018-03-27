@@ -22,9 +22,8 @@ namespace EF_CodeFirst.Models.Manager
 
             // Code-First FluenApi ile Conventions İşlemleri
 
-            // Veri tabanı tarafında tablo isimleri oluşturulurken ingilizce dilince çoğullaştırılır. Bu varsayına davranışı ortadan kaldırmak için;
+            // Veri tabanı tarafında tablo isimleri oluşturulurken ingilizce dilince çoğullaştırılır. Bu varsayılan davranışı ortadan kaldırmak için;
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-
 
 
             // Entity'ler arasındaki ilişkinin belirlenmesi. EF default olarak bu ilişkileri belirler fakat bazı kompleks ilişki durumlarında ne yapıcağını bilemez ve bizim aşağıdaki gibi açık açık ilişkileri belirtmemiz gerekir.
@@ -50,7 +49,6 @@ namespace EF_CodeFirst.Models.Manager
                 .HasKey(a => a.AdresId);
 
 
-
             // Tablo sütünları ile ilgili diğer işlemler
             modelBuilder.Entity<Kisi>()
                 .Property(k => k.Ad)
@@ -65,7 +63,7 @@ namespace EF_CodeFirst.Models.Manager
                 .HasMaxLength(50);
 
             modelBuilder.Entity<Adres>()
-                .Property(a => a.AdresTanım)
+                .Property(a => a.AdresTanim)
                 .HasMaxLength(300)
                 .HasColumnType("nvarchar");
         }
@@ -97,7 +95,7 @@ namespace EF_CodeFirst.Models.Manager
                 for (int i = 0; i < FakeData.NumberData.GetNumber(1,5); i++)
                 {
                     Adres adres = new Adres();
-                    adres.AdresTanım = FakeData.PlaceData.GetAddress();
+                    adres.AdresTanim = FakeData.PlaceData.GetAddress();
 
                     kisi.Adresler.Add(adres);
                 }

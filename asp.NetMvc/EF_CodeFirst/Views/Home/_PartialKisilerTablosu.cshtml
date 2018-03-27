@@ -1,0 +1,21 @@
+﻿@model List<Kisi>
+@using EF_CodeFirst.Library;
+
+<ul class="list-group">
+    <li class="list-group-item active">Kisiler</li>
+
+    @if (Model != null)
+    {
+        foreach (Kisi kisi in Model)
+        {
+            <li class="list-group-item">
+                <span class="ion ion-person"></span> @(kisi.Ad + " " + kisi.Soyad) ( <i>@kisi.Yas</i> )
+                <button class="btnKisiSil float-right ml-4" data-toggle="modal" data-target="#silmeUyarisi" data-kisiID="@kisi.KisiId"><span class="ion ion-trash-a red"></span></button>
+                @*@Html.ActionLinkWithIcon("Sil", "Kisi", "float-right ml-4", "ion ion-trash-a red", "?kisiID=" + kisi.KisiId.ToString())*@
+                @Html.ActionLinkWithIcon("Duzenle", "Kisi", "float-right", "ion ion-edit yellow", "?kisiID=" + kisi.KisiId.ToString())
+
+            </li>
+        }
+    }
+</ul>
+

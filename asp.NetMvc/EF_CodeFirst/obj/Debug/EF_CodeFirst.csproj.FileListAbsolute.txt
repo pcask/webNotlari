@@ -1,3 +1,4 @@
+C:\Users\SEZER\source\repos\webNotlari\asp.NetMvc\EF_CodeFirst\obj\Debug\EF_CodeFirst.csproj.CoreCompileInputs.cache
 C:\Users\SEZER\source\repos\webNotlari\asp.NetMvc\EF_CodeFirst\bin\EF_CodeFirst.dll.config
 C:\Users\SEZER\source\repos\webNotlari\asp.NetMvc\EF_CodeFirst\bin\EF_CodeFirst.dll
 C:\Users\SEZER\source\repos\webNotlari\asp.NetMvc\EF_CodeFirst\bin\EF_CodeFirst.pdb
@@ -22,7 +23,6 @@ C:\Users\SEZER\source\repos\webNotlari\asp.NetMvc\EF_CodeFirst\bin\System.Web.We
 C:\Users\SEZER\source\repos\webNotlari\asp.NetMvc\EF_CodeFirst\bin\System.Web.Webpages.Razor.xml
 C:\Users\SEZER\source\repos\webNotlari\asp.NetMvc\EF_CodeFirst\bin\System.Web.Helpers.xml
 C:\Users\SEZER\source\repos\webNotlari\asp.NetMvc\EF_CodeFirst\bin\System.Web.Mvc.xml
-C:\Users\SEZER\source\repos\webNotlari\asp.NetMvc\EF_CodeFirst\obj\Debug\EF_CodeFirst.csprojResolveAssemblyReference.cache
-C:\Users\SEZER\source\repos\webNotlari\asp.NetMvc\EF_CodeFirst\obj\Debug\EF_CodeFirst.csproj.CoreCompileInputs.cache
 C:\Users\SEZER\source\repos\webNotlari\asp.NetMvc\EF_CodeFirst\obj\Debug\EF_CodeFirst.dll
 C:\Users\SEZER\source\repos\webNotlari\asp.NetMvc\EF_CodeFirst\obj\Debug\EF_CodeFirst.pdb
+C:\Users\SEZER\source\repos\webNotlari\asp.NetMvc\EF_CodeFirst\obj\Debug\EF_CodeFirst.csprojResolveAssemblyReference.cache

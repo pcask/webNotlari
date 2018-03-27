@@ -3,6 +3,7 @@
     @model IEnumerable<Kisi> *@
 
 @using EF_CodeFirst.ViewModels.Home
+@using EF_CodeFirst.Library;
 
 @model KisilerVeAdresler
 
@@ -14,10 +15,28 @@
 <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" />
 
 <style>
-    .ion{
-        font-weight:bold;
-        font-size:24px;
-        vertical-align:sub;
+    .ion {
+        font-weight: bold;
+        font-size: 24px;
+        vertical-align: sub;
+    }
+
+    .red {
+        color: #ef1111;
+    }
+
+    .yellow {
+        color: #ffb400;
+        font-size: 20px;
+    }
+
+    .btnKisiSil, .btnAdresSil {
+        background-color: Transparent;
+        background-repeat: no-repeat;
+        border: none;
+        cursor: pointer;
+        overflow: hidden;
+        outline: none;
     }
 </style>
 
@@ -31,7 +50,7 @@
             <hr />
 
         </div>
-       
+
     </div>
 
     <div class="row">
@@ -39,18 +58,14 @@
         <div class="col-md-6">
 
             <div>
-                @Html.ActionLink("Kişi Ekle","Yeni","Kisi", new { @class="btn btn-primary"})
+                @Html.ActionLink("Kişi Ekle", "Yeni", "Kisi", null, new { @class = "btn btn-primary" })
                 <br /><br />
             </div>
 
-            <ul class="list-group">
-                <li class="list-group-item active">Kisiler</li>
+            <span id="kisilerTablosu">
+                @Html.Partial("_PartialKisilerTablosu", Model.Kisiler)
+            </span>
 
-                @foreach (Kisi kisi in Model.Kisiler)
-                {
-                    <li class="list-group-item"> <span class="ion ion-person"></span> @(kisi.Ad + " " + kisi.Soyad) ( <i>@kisi.Yas</i> ) </li>
-                }
-            </ul>
 
         </div>
 
@@ -58,21 +73,161 @@
         <div class="col-md-6">
 
             <div>
-                @Html.ActionLink("Adres Ekle", "Yeni", "Adres", new { @class = "btn btn-primary" })
+                @Html.ActionLink("Adres Ekle", "Yeni", "Adres", null, new { @class = "btn btn-primary" })
                 <br /><br />
             </div>
 
-            <ul class="list-group">
-                <li class="list-group-item active">Adresler</li>
-
-                @foreach (Adres adres in Model.Adresler)
-                {
-                    <li class="list-group-item"><span class="ion ion-location"></span> @(adres.AdresTanım + " ( " + adres.Kisi.Ad +" "+ adres.Kisi.Soyad+ " )")</li>
-                }
-            </ul>
+            <span id="adreslerTablosu">
+                @Html.Partial("_PartialAdreslerTablosu", Model.Adresler)
+            </span>
 
         </div>
 
     </div>
 
 </div>
+
+<!-- Modal Silme Uyarisi -->
+<div class="modal fade" id="silmeUyarisi" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">@* Ajax ile dolacak *@</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @* Ajax ile dolacak *@
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal">Vazgeç</button>
+                <span id="btnModalDelete">@* Ajax ile dolacak *@</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section myScript{
+
+    <script>
+
+        $(document).ready(function () {
+
+            $(".btnKisiSil").click(function () {
+
+                var id = $(this).attr('data-kisiID');
+
+                $.ajax({
+                    url: '/Home/kisiSilModal',
+                    type: 'post',
+                    data: { kisiID: id },
+                    success: function (data) {
+                        if (data.HasPerson) {
+
+                            $("#silmeUyarisi .modal-title").text("Kişiyi Silmek İstediğinize Emin Misiniz?")
+
+                            $("#silmeUyarisi .modal-body").html("<span class=\"ion ion-person\"></span>" + data.Result.Ad + " " + data.Result.Soyad + " ( <i>" + data.Result.Yas + "</i> )")
+
+                            $("#silmeUyarisi #btnModalDelete").html("<button id=\"btnModalKisiSil\" type=\"button\" class=\"btn btn-danger\" data-kisiID=" + data.Result.KisiId + ">Sil</button>")
+                        }
+                    }
+                });
+            });
+
+            // Yukarıda ajax işleminde oluşturulan buton'a on function'ı ile click eventi ekleniyor ve çalıştırılması sağlanıyor.
+            $("#btnModalDelete").on("click", "#btnModalKisiSil", function () {
+
+                var id = $(this).attr('data-kisiID');
+
+                $.ajax({
+                    url: '/Home/kisiSil',
+                    type: 'post',
+                    data: { kisiID: id },
+                    success: function (response) {
+
+                        if (response != null && response != "") {
+                            $("#kisilerTablosu").html(response);
+                            message = "Silme İşlemi Başarılı.";
+                        }
+                        else
+                            message = "Silme İşlemi Başarısız!!!";
+
+                        $("#silmeUyarisi .modal-body").html(message)
+                        $("#silmeUyarisi .modal-footer").html("")
+
+                        // Modal'ı belli bir süre bekledikten sonra kapatmak için setTimeout function'ından yararlandım.
+                        setTimeout(function () {
+                            $("#silmeUyarisi").modal("hide");
+                        }, 1100);
+                    }
+                });
+            });
+
+
+            $(".btnAdresSil").click(function () {
+
+                var id = $(this).attr("data-adresID");
+
+                $.ajax({
+
+                    url: '/Home/adresSilModal',
+                    type: 'post',
+                    data: { adresID: id },
+                    success: function (data) {
+
+                        if (data.HasAddress) {
+
+                            $("#silmeUyarisi .modal-title").text("Adresi Silmek İstediğinize Emin Misiniz?")
+
+                            $("#silmeUyarisi .modal-body").html("")
+                            $("#silmeUyarisi .modal-body").append("<strong>Ait Olduğu Kişi</strong>")
+                            $("#silmeUyarisi .modal-body").append("<br />")
+                            $("#silmeUyarisi .modal-body").append("<span class=\"ion ion-person\"></span>" + data.Person.Ad + " " + data.Person.Soyad + " ( <i>" + data.Person.Yas + "</i> )")
+                            $("#silmeUyarisi .modal-body").append("<br /><br />")
+                            $("#silmeUyarisi .modal-body").append("<strong>Adres Tanımı</strong>")
+                            $("#silmeUyarisi .modal-body").append("<br />")
+                            $("#silmeUyarisi .modal-body").append("<span class=\"ion ion-location\"></span>" + data.Address.AdresTanim)
+
+                            $("#silmeUyarisi #btnModalDelete").html("<button id=\"btnModalAdresSil\" type=\"button\" class=\"btn btn-danger\" data-adresID=" + data.Address.AdresId + ">Sil</button>")
+                        }
+                    }
+                });
+
+            });
+
+            $("#btnModalDelete").on("click", "#btnModalAdresSil", function () {
+
+                var id = $(this).attr("data-adresID");
+
+                $.ajax({
+
+                    url: "/Home/adresSil",
+                    type: "post",
+                    data: { adresID: id },
+                    success: function (response) {
+
+                        if (response != null && response != "") {
+                            $("#adreslerTablosu").html(response);
+                            message = "Silme İşlemi Başarılı.";
+                        }
+                        else
+                            message = "Silme İşlemi Başarısız!!!";
+
+                        $("#silmeUyarisi .modal-body").html(message)
+                        $("#silmeUyarisi .modal-footer").html("")
+
+                        // Modal'ı belli bir süre bekledikten sonra kapatmak için setTimeout function'ından yararlandım.
+                        setTimeout(function () {
+                            $("#silmeUyarisi").modal("hide");
+                        }, 1100);
+
+                    }
+                });
+            });
+
+        });
+
+    </script>
+}

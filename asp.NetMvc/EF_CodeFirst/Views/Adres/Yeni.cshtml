@@ -1,10 +1,10 @@
-﻿@model Kisi
-
+﻿@model Adres
 @{
     ViewBag.Title = "Yeni";
 }
 
-<h2>Yeni Kişi</h2>
+<h2>Yeni Adres</h2>
+
 <hr />
 
 <div>
@@ -16,21 +16,14 @@
                 <span class="input-group-text" id="txtAd"> Ad </span>
             </div>
             @* Eklenen attribütelerde orta tire varsa farklı bir anlam yükleyecektir. Bunun önüne geçmek için orta tireler alt tire olarak yazılabilir. "aria-describedby" attribüte'ü gibi *@
-            @Html.TextBoxFor(k => k.Ad, new { @class = "form-control", placeholder = "Ad", aria_describedby = "txtAd" })
+            @Html.TextAreaFor(a => a.AdresTanım, 10, 20, new { @class = "form-control", placeholder = "Adres tanımı", aria_describedby = "txtAreaAdres" })
         </div>
 
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <span class="input-group-text" id="txtSoyad"> Soyad </span>
+                <span class="input-group-text" id="ddlKisiler"> Kişi </span>
             </div>
-            @Html.TextBoxFor(k => k.Soyad, new { @class = "form-control", placeholder = "Soyad", aria_describedby = "txtSoyad" })
-        </div>
-
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="txtYas"> Yaş </span>
-            </div>
-            @Html.TextBoxFor(k => k.Yas, new { @class = "form-control", placeholder = "Yaş", aria_describedby = "txtYas" })
+            @Html.DropDownListFor(a => a.Kisi.KisiId, (List<SelectListItem>)ViewBag.Kisiler, new { @class = "form-control", aria_describedby = "ddlKisiler" })
         </div>
 
         <div class="input-group mb-3">

@@ -1,0 +1,42 @@
+﻿@model Adres
+@{
+    ViewBag.Title = "Adres Düzenle";
+}
+
+<h2>Adres Düzenle</h2>
+
+<hr />
+
+<div>
+
+    @using (Html.BeginForm())
+    {
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="txtAd"> Ad </span>
+            </div>
+            @* Eklenen attribütelerde orta tire varsa farklı bir anlam yükleyecektir. Bunun önüne geçmek için orta tireler alt tire olarak yazılabilir. "aria-describedby" attribüte'ü gibi *@
+            @Html.TextAreaFor(a => a.AdresTanım, 10, 20, new { @class = "form-control", placeholder = "Adres tanımı", aria_describedby = "txtAreaAdres" })
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="ddlKisiler"> Kişi </span>
+            </div>
+            @Html.DropDownListFor(a => a.Kisi.KisiId, (List<SelectListItem>)ViewBag.Kisiler, new { @class = "form-control", aria_describedby = "ddlKisiler" })
+        </div>
+
+        <div class="input-group mb-3">
+            <input type="submit" value="Güncelle" class="btn btn-success" />
+        </div>
+    }
+
+    <div class="input-group">
+
+        <div class="alert alert-@ViewBag.Status" role="alert">
+            @ViewBag.Result
+        </div>
+
+    </div>
+
+</div>

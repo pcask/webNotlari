@@ -1,0 +1,18 @@
+﻿@model List<Adres>
+
+@using EF_CodeFirst.Library;
+
+<ul class="list-group">
+    <li class="list-group-item active">Adresler</li>
+
+    @foreach (Adres adres in Model)
+    {
+        <li class="list-group-item">
+            <span class="ion ion-location"></span> @(adres.AdresTanim + " ( " + adres.Kisi.Ad + " " + adres.Kisi.Soyad + " )")
+            
+            <button class="btnAdresSil float-right ml-4" data-toggle="modal" data-target="#silmeUyarisi" data-adresID="@adres.AdresId"><span class="ion ion-trash-a red"></span></button>
+
+            @Html.ActionLinkWithIcon("Duzenle", "Adres", "float-right", "ion ion-edit yellow", "?adresID=" + adres.AdresId.ToString())
+        </li>
+    }
+</ul>
